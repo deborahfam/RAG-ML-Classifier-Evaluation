@@ -23,7 +23,6 @@ class CrawlerService:
         self._init_ui()
 
     def _init_ui(self):
-        st.header("Proceso de Web Crawling")
         self.status_bar = st.empty()
         self.progress_bar = st.progress(0)
         self.log_container = st.container()

@@ -1,65 +1,12 @@
-import hashlib
-import os
-import streamlit as st
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from services.db.models import DocumentPageModel, DocumentMetadataModel
-from dotenv import load_dotenv
 from config import client, db
-from typing import Dict, Any, Optional
-
-load_dotenv()
-
-# Environment Variables
-MONGODB_URI = os.getenv("MONGODB_URI")
-DB_NAME = os.getenv("DB_NAME")
 
 class MongoDBService:
     def __init__(self):
-        self.client = MongoClient(MONGODB_URI)
-        self.db = self.client[DB_NAME]
-        self.collection = self.db["docs"] 
-
-    def _init_ui(self):
-        st.sidebar.subheader("Estadísticas de Base de Datos")
-        self.stats_display = st.sidebar.empty()
-
-    def is_duplicate(self, text: str) -> bool:
-        try:
-            hash_digest = hashlib.sha256(text.encode("utf-8")).hexdigest()
-            existing = self.collection.find_one({"hash_code": hash_digest})
-            self._update_stats()
-            return existing is not None
-        except Exception as e:
-            st.error(f"Error en verificación de duplicados: {str(e)}")
-            raise Exception(f"Error en base de datos (verificación): {str(e)}") from e
-
-    def save_document(self, url: str, chunk_text: str, embedding: list):
-        try:
-            document = {
-                # "hash_code": hashlib.sha256(chunk_text.encode()).hexdigest(),
-                "name": url,
-                "chunk_text": chunk_text,
-                "embedded_vector": embedding
-            }
-            
-            # Corrección: Usar self.collection correctamente
-            result = self.collection.insert_one(document)
-            
-            # self._update_stats()
-            st.toast(f"✅ Chunk guardado exitosamente (ID: {result.inserted_id})")
-            return result.inserted_id
-            
-        except Exception as e:
-            error_msg = f"Error guardando documento: {str(e)}"
-            st.error(error_msg)
-            raise Exception(f"Error en base de datos: {str(e)}") from e
-
-    # def _update_stats(self):
-    #     stats = {
-    #         "Total Documentos": self.collection.count_documents({})
-    #     }
-    #     self.stats_display.write(stats)
+        self.client = client
+        self.db = db
 
     def insert_one(self, collection_name: str, data: dict) -> str:
         return self.db[collection_name].insert_one(data).inserted_id
@@ -89,12 +36,11 @@ class MongoDBService:
             .update_one({"_id": ObjectId(id)}, {"$set": {row: new_value}})
             .modified_count
         )
-    
 
 
 class DocumentPage:
     def __init__(self, db_handler: MongoDBService):
-        self.collection_name = "document_page_table"
+        self.collection_name = "docs"
         self.db_handler = db_handler
 
     def save(self, data: DocumentPageModel):
@@ -128,7 +74,7 @@ class DocumentPage:
         Get related metadata for a document page by its metadata ID.
         """
         return self.db_handler.find_related(
-            "document_metadata_table", "_id", metadata_id
+            "docs_metadata", "_id", metadata_id
         )
 
     def update(self, id: str, update_data: DocumentPageModel):
@@ -148,7 +94,7 @@ class DocumentPage:
 
 class DocumentMetadata:
     def __init__(self, db_handler: MongoDBService):
-        self.collection_name = "document_metadata_table"
+        self.collection_name = "docs_metadata"
         self.db_handler = db_handler
 
     def save(self, data: DocumentMetadataModel):
