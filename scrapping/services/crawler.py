@@ -3,10 +3,19 @@ from bs4 import BeautifulSoup, Tag
 import requests
 import hashlib
 import streamlit as st
+import os
+import dotenv
 from config import collection, db
 
+dotenv.load_dotenv()
+
+# Environment Variables
+DB_NAME = os.getenv("DB_NAME")
+WEB_CRAWLER_COLLECTION = os.getenv("WEB_CRAWLER_COLLECTION")
+MAX_LINKS_PER_PAGE = int(os.getenv("MAX_LINKS_PER_PAGE", "2"))
+
 class CrawlerService:
-    def __init__(self, database_service, text_processor, max_links_per_page=2):
+    def __init__(self, database_service, text_processor, max_links_per_page=MAX_LINKS_PER_PAGE):
         self.visited: Set[str] = set()
         self.db_service = database_service
         self.text_processor = text_processor
@@ -108,14 +117,15 @@ class CrawlerService:
         saved = 0
         for chunk, embedding in zip(chunks, embeddings):
             try:
-                # hash_code = hashlib.sha256(chunk.encode()).hexdigest()
-                # if not self.db_service.is_duplicate(hash_code):
                 self.db_service.save_document(
-                        url=url,
-                        chunk_text=chunk.page_content,
-                        embedding=embedding,
-                        # hash_code=hash_code
-                    )
+                    url=url,
+                    chunk_text=chunk.page_content,
+                    embedding=embedding,
+                    metadata={
+                        "source_type": "web",
+                        "url": url
+                    }
+                )
                 saved += 1
             except Exception as e:
                 self._update_status(f"Error guardando chunk: {str(e)}", "error")

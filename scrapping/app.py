@@ -7,100 +7,83 @@ from services.embeddings import EmbeddingService
 from services.doc_processor import DocumentProcessorService
 
 dotenv.load_dotenv()
-st.set_page_config(page_title="Chatbot - Crawler", page_icon="💬", layout="wide")
-embedding_model = (EmbeddingService()) 
+st.set_page_config(page_title="RAG System - Crawler & Document Processor", page_icon="🤖", layout="wide")
+
+# Initialize services
+embedding_model = EmbeddingService()
 db_service = MongoDBService()
 text_processor = TextProcessor(embedding_model)
 crawler = CrawlerService(db_service, text_processor)
+doc_processor = DocumentProcessorService(embedding_model)
 
-def doc():
-        st.title("Document Processor")
+def process_pdf(uploaded_file):
+    """Process the uploaded PDF file."""
+    try:
+        with st.spinner(f"Processing PDF: {uploaded_file.name}"):
+            doc_processor.process_and_save(uploaded_file)
+        st.success(f"PDF processed successfully: {uploaded_file.name}")
+    except Exception as e:
+        st.error(f"Error processing PDF: {str(e)}")
 
-        st.subheader("Upload a Document")
+def process_web_crawling(url, max_depth):
+    """Process web crawling for the given URL."""
+    try:
+        with st.spinner(f"Crawling URL: {url}"):
+            crawler.crawl(url, max_depth)
+        st.success(f"Web crawling completed for: {url}")
+    except Exception as e:
+        st.error(f"Error during web crawling: {str(e)}")
+
+def main():
+    st.title("🤖 RAG System - Crawler & Document Processor")
+    
+    # Sidebar navigation
+    st.sidebar.title("Navigation")
+    page = st.sidebar.radio("Select Service", ["Document Processor", "Web Crawler"])
+    
+    if page == "Document Processor":
+        st.header("📚 Document Processor")
+        st.write("Upload PDF documents to process and store in the database.")
+        
         uploaded_files = st.file_uploader(
-            "Choose files", type=["txt", "pdf"], accept_multiple_files=True
+            "Choose PDF files", 
+            type=["pdf"], 
+            accept_multiple_files=True
         )
-
+        
         if uploaded_files:
-            embedding_model = EmbeddingService()
-            processor = DocumentProcessorService(embedding_model)
-
-            for uploaded_file in uploaded_files:
-                with st.spinner(f"Crawling PDF: {uploaded_file.name}"):
-                    processor.process_and_save(uploaded_file)
-                st.write("Crawling completed.")
-
-def web():
-        st.title("Web Crawler with Embeddings")
-
-        # input_method = st.selectbox(
-        #     "Select input method",
-        #     ["Single URL", "Multiple URLs", "Upload text file with URLs"],
-        # )
-        input_method = 'Single URL'
-
+            if st.button("Process Documents"):
+                for uploaded_file in uploaded_files:
+                    process_pdf(uploaded_file)
+    
+    elif page == "Web Crawler":
+        st.header("🌐 Web Crawler")
+        st.write("Enter URLs to crawl and store in the database.")
+        
+        # Input method selection
+        input_method = st.selectbox(
+            "Select input method",
+            ["Single URL", "Multiple URLs"]
+        )
+        
         urls = []
         if input_method == "Single URL":
             url = st.text_input("Enter URL")
             if url:
                 urls.append(url)
-        elif input_method == "Multiple URLs":
+        else:
             urls_input = st.text_area("Enter multiple URLs (one per line)")
             if urls_input:
-                urls = urls_input.splitlines()
-        elif input_method == "Upload text file with URLs":
-            uploaded_file = st.file_uploader("Choose a file")
-            if uploaded_file is not None:
-                urls = [
-                    line.decode("utf-8").strip() for line in uploaded_file.readlines()
-                ]
-
-        # max_depth = st.number_input("Max Depth", min_value=1, max_value=10, value=2)
-        max_depth = 2
-
-        col1, col2,col3 = st.columns([1, 0.5, 8])
-        with col1:
-            start_crawling = st.button("Start Crawling")
-        with col2:
-            reset = st.button("Reset")
-        with col3:
-             pass
-
-        if reset:
-            st.rerun()
-
-        if start_crawling:
+                urls = [url.strip() for url in urls_input.splitlines() if url.strip()]
+        
+        max_depth = st.slider("Max Crawling Depth", 1, 5, 2)
+        
+        if st.button("Start Crawling"):
             if urls:
-                try:
-                    crawler = CrawlerService(
-                         database_service=db_service, 
-                         text_processor=text_processor, 
-                         embedding_model=embedding_model
-                    )
-                    for url in urls:
-                        with st.spinner(f"Crawling URL: {url}"):
-                            crawler.crawl(url, max_depth)
-                        st.write("Crawling completed.")
-                except Exception as e:
-                    st.error(f"Error during crawling: {e}")
+                for url in urls:
+                    process_web_crawling(url, max_depth)
             else:
-                st.error("Please enter a valid URL.")
-
-def main():
-        # doc_tab, web_tab = st.tabs(["📚 Document Parser", "🌐 Website Crawler"])
-
-        # with web_tab:
-        #     web()
-        # with doc_tab:
-        #     doc()
-
-    # Interfaz de usuario
-    st.title("Sistema de Web Crawling Inteligente")
-    url = st.text_input("URL inicial", "https://example.com")
-    depth = st.slider("Profundidad máxima", 1, 5, 2)
-
-    if st.button("Iniciar Crawling"):
-        crawler.crawl(start_url=url, max_depth=depth)
+                st.error("Please enter at least one valid URL.")
 
 if __name__ == "__main__":
-        main()
+    main()

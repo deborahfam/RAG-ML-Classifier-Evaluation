@@ -6,13 +6,18 @@ from bson.objectid import ObjectId
 from services.db.models import DocumentPageModel, DocumentMetadataModel
 from dotenv import load_dotenv
 from config import client, db
+from typing import Dict, Any, Optional
 
 load_dotenv()
 
+# Environment Variables
+MONGODB_URI = os.getenv("MONGODB_URI")
+DB_NAME = os.getenv("DB_NAME")
+
 class MongoDBService:
     def __init__(self):
-        self.client = client
-        self.db = db
+        self.client = MongoClient(MONGODB_URI)
+        self.db = self.client[DB_NAME]
         self.collection = self.db["docs"] 
 
     def _init_ui(self):
