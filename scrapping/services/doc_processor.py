@@ -1,6 +1,3 @@
-import base64
-import json
-from typing import List, Tuple
 from PyPDF2 import PdfReader
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -11,18 +8,8 @@ from config import collection, db
 import nltk
 import hashlib
 from services.main import MainService
-import re
-import io
 import pymupdf4llm
 import pymupdf
-
-
-from prompts import (
-    GENERATE_QUESTIONS,
-    GENERATE_IDEAS,
-    GENERATE_SUMMARIZE,
-)
-from PIL import Image
 
 class DocumentProcessorService:
     def __init__(self, embedding_model: EmbeddingService) -> None:
