@@ -1,0 +1,345 @@
+
+--- FixedSizeChunker ---
+Total chunks: 20
+
+Chunk 1:
+Complex dynamics of lunar sighting, aiding in more reliable assessments. Furthermore, this study introduces a machine
+    learning-based approach to classify crescent visibility conditions. Utilizing the Logistic Regression algorithm, the
+----------------------------------------
+
+Chunk 2:
+research achieves an impressive predictive accuracy of 98.83%, demonstrating the efficacy of data-driven methods in
+    astronomical applications.
+----------------------------------------
+
+Chunk 3:
+By tuning the ODEH model based on Morocco’s historical observations and applying machine learning techniques,
+    this research offers a robust and reliable framework for determining the start of the Hijri month. The integration of
+----------------------------------------
+
+Chunk 4:
+AI-driven analysis enhances predictive reliability and opens new avenues for refining astronomical criteria through
+    data science innovations. The findings underscore the relevance of advanced computational techniques in addressing
+----------------------------------------
+
+Chunk 5:
+long-standing challenges in lunar calendar determination, setting the stage for further enhancements in predictive
+    modeling and methodological refinement.
+    2
+    Related Works
+    2.1
+    Empirical Altitude–Azimuth Criteria
+----------------------------------------
+
+Chunk 6:
+The earliest methods rely on empirical relationships between the moon’s altitude and azimuth. Pioneered by Fother-
+    ingham [4] and subsequently refined, Ilyas [5], and Fatoohi [6], these criteria are typically expressed as polynomial
+----------------------------------------
+
+Chunk 7:
+equations that define a threshold for visibility. Although simple and based on direct observational data, these models
+    suffer from being overly static; they often fail to capture the variability in atmospheric conditions, observer differences,
+----------------------------------------
+
+Chunk 8:
+and geographical diversity. For instance, Ilyas’s criterion has been criticized for underestimating the human eye’s
+    capability, thereby limiting its practical predictive power.
+    2.2
+    Lunar Cycle Analysis
+----------------------------------------
+
+Chunk 9:
+Another approach focuses on the statistical examination of lunar cycle patterns [7] [8]. These analyses explore the
+    frequency of 29- versus 30-day months and compare the resulting patterns with observational data. While they provide
+----------------------------------------
+
+Chunk 10:
+insight into the broader calendrical implications of crescent sightings, their main shortcoming lies in the inherent
+    variability of lunar cycles. Each cycle is unique because of factors like sun–moon declination differences, observer
+----------------------------------------
+
+Chunk 11:
+location, and atmospheric influences; thus, the lunar cycle approach is less reliable for predicting individual crescent
+    sightings or for forming a robust calendrical criterion.
+    2.3
+    Arc of Vision Versus Arc of Light (Elongation) Criteria
+----------------------------------------
+
+Chunk 12:
+Modern calendrical systems have also adopted criteria based on a combination of the arc of vision (the altitude
+    difference between the moon and the sun) and the arc of light (or elongation) [2]. These methods aim to eliminate
+----------------------------------------
+
+Chunk 13:
+false-positive sightings by setting a lower boundary that positive observations must exceed. Yet, their rigidity—often
+    designed specifically to support a calendrical framework—can lead to cases where real, but borderline, observations are
+----------------------------------------
+
+Chunk 14:
+disregarded. In particular, the criteria can be too conservative, especially when distinguishing between naked-eye and
+    optical-aided observations
+    2.4
+    Arc of Vision Versus Width Criteria
+----------------------------------------
+
+Chunk 15:
+Introduced by Bruin [9] and later adapted by researchers such as Yallop [10], Odeh [11], Qureshi [12], and Alrefay et al
+    [13], these criteria extend the analysis by incorporating the lunar crescent’s width into the visibility equation. Although
+----------------------------------------
+
+Chunk 16:
+this method adds a valuable geometric dimension that can also predict observation windows, it is hampered by the
+    difficulty in accurately predicting crescent visibility because the empirical conditions cannot reflect the actual crescent
+----------------------------------------
+
+Chunk 17:
+visibility in a country.
+    2.5
+    Lag Time–Based Criteria
+    Lag time, the interval between sunset (or moonset) and the relevant lunar phase, has also been used as a predictor [14].
+----------------------------------------
+
+Chunk 18:
+While lag time is intuitively appealing (longer intervals are thought to correlate with easier visibility), its predictive
+    power is undermined by low correlation coefficients and its sensitivity to observer latitude. In high-latitude regions, for
+----------------------------------------
+
+Chunk 19:
+example, the lunar crescent’s slanted path significantly alters lag time, rendering it less reliable as a sole or primary
+    parameter in visibility criteria.
+----------------------------------------
+
+Chunk 20:
+Despite the notable advancements achieved by state-of-the-art methods, these techniques are fundamentally limited
+    by their reliance on static, one-size-fits-all thresholds. Such rigidity hinders their ability to accommodate the inherent
+----------------------------------------
+
+--- RecursiveChunker ---
+Total chunks: 20
+
+Chunk 1:
+Complex dynamics of lunar sighting, aiding in more reliable assessments. Furthermore, this study introduces a machine
+    learning-based approach to classify crescent visibility conditions. Utilizing the Logistic Regression algorithm, the
+----------------------------------------
+
+Chunk 2:
+research achieves an impressive predictive accuracy of 98.83%, demonstrating the efficacy of data-driven methods in
+    astronomical applications.
+----------------------------------------
+
+Chunk 3:
+By tuning the ODEH model based on Morocco’s historical observations and applying machine learning techniques,
+    this research offers a robust and reliable framework for determining the start of the Hijri month. The integration of
+----------------------------------------
+
+Chunk 4:
+AI-driven analysis enhances predictive reliability and opens new avenues for refining astronomical criteria through
+    data science innovations. The findings underscore the relevance of advanced computational techniques in addressing
+----------------------------------------
+
+Chunk 5:
+long-standing challenges in lunar calendar determination, setting the stage for further enhancements in predictive
+    modeling and methodological refinement.
+    2
+    Related Works
+    2.1
+    Empirical Altitude–Azimuth Criteria
+----------------------------------------
+
+Chunk 6:
+The earliest methods rely on empirical relationships between the moon’s altitude and azimuth. Pioneered by Fother-
+    ingham [4] and subsequently refined, Ilyas [5], and Fatoohi [6], these criteria are typically expressed as polynomial
+----------------------------------------
+
+Chunk 7:
+equations that define a threshold for visibility. Although simple and based on direct observational data, these models
+    suffer from being overly static; they often fail to capture the variability in atmospheric conditions, observer differences,
+----------------------------------------
+
+Chunk 8:
+and geographical diversity. For instance, Ilyas’s criterion has been criticized for underestimating the human eye’s
+    capability, thereby limiting its practical predictive power.
+    2.2
+    Lunar Cycle Analysis
+----------------------------------------
+
+Chunk 9:
+Another approach focuses on the statistical examination of lunar cycle patterns [7] [8]. These analyses explore the
+    frequency of 29- versus 30-day months and compare the resulting patterns with observational data. While they provide
+----------------------------------------
+
+Chunk 10:
+insight into the broader calendrical implications of crescent sightings, their main shortcoming lies in the inherent
+    variability of lunar cycles. Each cycle is unique because of factors like sun–moon declination differences, observer
+----------------------------------------
+
+Chunk 11:
+location, and atmospheric influences; thus, the lunar cycle approach is less reliable for predicting individual crescent
+    sightings or for forming a robust calendrical criterion.
+    2.3
+    Arc of Vision Versus Arc of Light (Elongation) Criteria
+----------------------------------------
+
+Chunk 12:
+Modern calendrical systems have also adopted criteria based on a combination of the arc of vision (the altitude
+    difference between the moon and the sun) and the arc of light (or elongation) [2]. These methods aim to eliminate
+----------------------------------------
+
+Chunk 13:
+false-positive sightings by setting a lower boundary that positive observations must exceed. Yet, their rigidity—often
+    designed specifically to support a calendrical framework—can lead to cases where real, but borderline, observations are
+----------------------------------------
+
+Chunk 14:
+disregarded. In particular, the criteria can be too conservative, especially when distinguishing between naked-eye and
+    optical-aided observations
+    2.4
+    Arc of Vision Versus Width Criteria
+----------------------------------------
+
+Chunk 15:
+Introduced by Bruin [9] and later adapted by researchers such as Yallop [10], Odeh [11], Qureshi [12], and Alrefay et al
+    [13], these criteria extend the analysis by incorporating the lunar crescent’s width into the visibility equation. Although
+----------------------------------------
+
+Chunk 16:
+this method adds a valuable geometric dimension that can also predict observation windows, it is hampered by the
+    difficulty in accurately predicting crescent visibility because the empirical conditions cannot reflect the actual crescent
+----------------------------------------
+
+Chunk 17:
+visibility in a country.
+    2.5
+    Lag Time–Based Criteria
+    Lag time, the interval between sunset (or moonset) and the relevant lunar phase, has also been used as a predictor [14].
+----------------------------------------
+
+Chunk 18:
+While lag time is intuitively appealing (longer intervals are thought to correlate with easier visibility), its predictive
+    power is undermined by low correlation coefficients and its sensitivity to observer latitude. In high-latitude regions, for
+----------------------------------------
+
+Chunk 19:
+example, the lunar crescent’s slanted path significantly alters lag time, rendering it less reliable as a sole or primary
+    parameter in visibility criteria.
+----------------------------------------
+
+Chunk 20:
+Despite the notable advancements achieved by state-of-the-art methods, these techniques are fundamentally limited
+    by their reliance on static, one-size-fits-all thresholds. Such rigidity hinders their ability to accommodate the inherent
+----------------------------------------
+
+--- MarkdownSplitter ---
+Total chunks: 20
+
+Chunk 1:
+Complex dynamics of lunar sighting, aiding in more reliable assessments. Furthermore, this study introduces a machine
+    learning-based approach to classify crescent visibility conditions. Utilizing the Logistic Regression algorithm, the
+----------------------------------------
+
+Chunk 2:
+research achieves an impressive predictive accuracy of 98.83%, demonstrating the efficacy of data-driven methods in
+    astronomical applications.
+----------------------------------------
+
+Chunk 3:
+By tuning the ODEH model based on Morocco’s historical observations and applying machine learning techniques,
+    this research offers a robust and reliable framework for determining the start of the Hijri month. The integration of
+----------------------------------------
+
+Chunk 4:
+AI-driven analysis enhances predictive reliability and opens new avenues for refining astronomical criteria through
+    data science innovations. The findings underscore the relevance of advanced computational techniques in addressing
+----------------------------------------
+
+Chunk 5:
+long-standing challenges in lunar calendar determination, setting the stage for further enhancements in predictive
+    modeling and methodological refinement.
+    2
+    Related Works
+    2.1
+    Empirical Altitude–Azimuth Criteria
+----------------------------------------
+
+Chunk 6:
+The earliest methods rely on empirical relationships between the moon’s altitude and azimuth. Pioneered by Fother-
+    ingham [4] and subsequently refined, Ilyas [5], and Fatoohi [6], these criteria are typically expressed as polynomial
+----------------------------------------
+
+Chunk 7:
+equations that define a threshold for visibility. Although simple and based on direct observational data, these models
+    suffer from being overly static; they often fail to capture the variability in atmospheric conditions, observer differences,
+----------------------------------------
+
+Chunk 8:
+and geographical diversity. For instance, Ilyas’s criterion has been criticized for underestimating the human eye’s
+    capability, thereby limiting its practical predictive power.
+    2.2
+    Lunar Cycle Analysis
+----------------------------------------
+
+Chunk 9:
+Another approach focuses on the statistical examination of lunar cycle patterns [7] [8]. These analyses explore the
+    frequency of 29- versus 30-day months and compare the resulting patterns with observational data. While they provide
+----------------------------------------
+
+Chunk 10:
+insight into the broader calendrical implications of crescent sightings, their main shortcoming lies in the inherent
+    variability of lunar cycles. Each cycle is unique because of factors like sun–moon declination differences, observer
+----------------------------------------
+
+Chunk 11:
+location, and atmospheric influences; thus, the lunar cycle approach is less reliable for predicting individual crescent
+    sightings or for forming a robust calendrical criterion.
+    2.3
+    Arc of Vision Versus Arc of Light (Elongation) Criteria
+----------------------------------------
+
+Chunk 12:
+Modern calendrical systems have also adopted criteria based on a combination of the arc of vision (the altitude
+    difference between the moon and the sun) and the arc of light (or elongation) [2]. These methods aim to eliminate
+----------------------------------------
+
+Chunk 13:
+false-positive sightings by setting a lower boundary that positive observations must exceed. Yet, their rigidity—often
+    designed specifically to support a calendrical framework—can lead to cases where real, but borderline, observations are
+----------------------------------------
+
+Chunk 14:
+disregarded. In particular, the criteria can be too conservative, especially when distinguishing between naked-eye and
+    optical-aided observations
+    2.4
+    Arc of Vision Versus Width Criteria
+----------------------------------------
+
+Chunk 15:
+Introduced by Bruin [9] and later adapted by researchers such as Yallop [10], Odeh [11], Qureshi [12], and Alrefay et al
+    [13], these criteria extend the analysis by incorporating the lunar crescent’s width into the visibility equation. Although
+----------------------------------------
+
+Chunk 16:
+this method adds a valuable geometric dimension that can also predict observation windows, it is hampered by the
+    difficulty in accurately predicting crescent visibility because the empirical conditions cannot reflect the actual crescent
+----------------------------------------
+
+Chunk 17:
+visibility in a country.
+    2.5
+    Lag Time–Based Criteria
+    Lag time, the interval between sunset (or moonset) and the relevant lunar phase, has also been used as a predictor [14].
+----------------------------------------
+
+Chunk 18:
+While lag time is intuitively appealing (longer intervals are thought to correlate with easier visibility), its predictive
+    power is undermined by low correlation coefficients and its sensitivity to observer latitude. In high-latitude regions, for
+----------------------------------------
+
+Chunk 19:
+example, the lunar crescent’s slanted path significantly alters lag time, rendering it less reliable as a sole or primary
+    parameter in visibility criteria.
+----------------------------------------
+
+Chunk 20:
+Despite the notable advancements achieved by state-of-the-art methods, these techniques are fundamentally limited
+    by their reliance on static, one-size-fits-all thresholds. Such rigidity hinders their ability to accommodate the inherent
+----------------------------------------

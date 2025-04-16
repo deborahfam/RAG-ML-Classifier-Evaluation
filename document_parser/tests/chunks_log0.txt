@@ -1,0 +1,37 @@
+Chunks con estrategia FixedLengthStrategy:
+-> Este es un ejemplo de documento. Tiene varias orac
+-> iones. El propósito es demostrar diferentes estrat
+-> egias de chunking.
+
+Aquí comienza un nuevo párrafo
+->  que puede tener información complementaria. Otra 
+-> oración para completar el ejemplo.
+============================================================
+Chunks con estrategia OverlappingStrategy:
+-> Este es un ejemplo de documento. Tiene varias orac
+-> arias oraciones. El propósito es demostrar diferen
+-> ar diferentes estrategias de chunking.
+
+Aquí comie
+-> Aquí comienza un nuevo párrafo que puede tener inf
+->  tener información complementaria. Otra oración pa
+-> oración para completar el ejemplo.
+============================================================
+Chunks con estrategia SentenceBasedStrategy:
+-> Este es un ejemplo de documento. Tiene varias oraciones.
+-> El propósito es demostrar diferentes estrategias de chunking.
+-> Aquí comienza un nuevo párrafo que puede tener información complementaria.
+-> Otra oración para completar el ejemplo.
+============================================================
+Chunks con estrategia ParagraphBasedStrategy:
+-> Este es un ejemplo de documento. Tiene varias oraciones. El propósito es demostrar diferentes estrategias de chunking.
+-> Aquí comienza un nuevo párrafo que puede tener información complementaria. Otra oración para completar el ejemplo.
+============================================================
+Chunks con estrategia TokenBasedStrategy:
+-> Este es un ejemplo de documento. Tiene varias oraciones. El
+-> documento. Tiene varias oraciones. El propósito es demostrar diferentes estrategias
+-> propósito es demostrar diferentes estrategias de chunking. Aquí comienza un
+-> de chunking. Aquí comienza un nuevo párrafo que puede tener
+-> nuevo párrafo que puede tener información complementaria. Otra oración para
+-> información complementaria. Otra oración para completar el ejemplo.
+-> completar el ejemplo.
