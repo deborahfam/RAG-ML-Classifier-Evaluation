@@ -1,7 +1,7 @@
 import json
 
-def write_qa_pairs(output_path, qa_content):
-    with open(output_path, 'w', encoding='utf-8') as file:
-        for line in qa_content.strip().split('\n'):
-            if line.startswith("Pregunta:") or line.startswith("Respuesta:"):
-                file.write(json.dumps({"text": line}) + '\n')
+def write_qa_pairs(output_path, qa_pairs):
+    with open(output_path, 'w', encoding='utf-8') as f:
+        for pair in qa_pairs:
+            json_line = json.dumps(pair, ensure_ascii=False)
+            f.write(json_line + '\n')

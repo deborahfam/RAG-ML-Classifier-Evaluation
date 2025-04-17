@@ -1,42 +1,44 @@
-import streamlit as st
+import json
+from prompt import BASELINE_TEMPLATE
 from src.generator import GeneratorService
-from src.reader import read_text
 from src.writer import write_qa_pairs
 
 def main():
-    st.title("Generador de Preguntas y Respuestas")
-
-    model_name = "accounts/fireworks/models/deepseek-r1"
+    # model_name = "accounts/fireworks/models/deepseek-r1"
+    model_name="gemini-1.5-flash"
     temperature = 0.7
     top_p = 1.0
 
-    input_path = 'data/problems.txt'
-    lines = read_text(input_path).splitlines()
+    input_path = './src/data/problems.json'
+    
+    # Read JSON file
+    with open(input_path, 'r', encoding='utf-8') as f:
+        problems = json.load(f)
 
     generator = GeneratorService()
     qa_pairs = []
 
-    for i, question in enumerate(lines):
-        if not question.strip():
-            continue  # saltar líneas vacías
+    for i, problem_data in enumerate(problems):
+        problem = problem_data['problem']
+        if not problem.strip():
+            continue  # skip empty problems
 
         try:
-            response = generator.json_generator(
+            query = BASELINE_TEMPLATE.replace("query", problem)
+            response = generator.gemini_json_generator(
                 model_name=model_name,
                 temperature=temperature,
                 top_p=top_p,
-                query=question,
+                prompt=query,
             )
-            content = response.choices[0].message.content
+            # content = response.choices[0].message.content
+            print("response: ", response)
+            content = response
             qa = eval(content) if isinstance(content, str) else content
             qa_pairs.append(qa)
 
-            st.markdown(f"**Pregunta:** {qa['pregunta']}")
-            st.markdown(f"**Respuesta:** {qa['respuesta']}")
-            st.markdown("---")
-
         except Exception as e:
-            st.error(f"Error en la pregunta #{i + 1}: {e}")
+            print(f"Error en el problema #{i + 1}: {e}")
             continue
 
     # Guardar resultados

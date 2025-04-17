@@ -1,0 +1,5 @@
+real data extracted from reddit topic
+
+https://www.reddit.com/r/datascience/comments/hqfvp4/has_anyone_actually_used_clustering_to_solve_an/?utm_source=chatgpt.com
+
+Los 11 primeros añadidos a problems son de clustering.
