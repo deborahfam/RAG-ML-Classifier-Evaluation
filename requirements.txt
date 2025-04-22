@@ -1,4 +1,7 @@
 langchain-text-splitters
 pypdf
 fitz
-fireworks-ai
+fireworks-ai>=0.9.0
+python-dotenv>=1.0.0
+google-generativeai>=0.3.0
+tabulate>=0.9.0

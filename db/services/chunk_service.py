@@ -1,7 +1,7 @@
 # services/chunk_service.py
 import uuid
-from models.document_model import MinimalChunkModel, IndexedChunkModel, EnrichedChunkModel
-from database.dao.vector_dao import VectorDAO
+from db.models.document_model import MinimalChunkModel, IndexedChunkModel, EnrichedChunkModel
+from db.database.dao.vector_dao import VectorDAO
 from utils.encoder import BaseEncoder
 
 class ChunkService:
