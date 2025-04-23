@@ -1,4 +1,4 @@
-FEW_SHOT_PROMPT = """You are an expert in Machine Learning. I'll show you several examples of ML problem classification, then you'll classify a new query.
+FEW_SHOT_PROMPT = """You are an expert in Machine Learning. I'll show you several examples of ML problem classification, then you'll classify a new query. You may also use the context provided to aid your decision.
 
 Examples:
 1. Query: "Predict house prices based on square footage and location"
@@ -13,5 +13,9 @@ Examples:
    Classification: Binary Classification
    Reason: Binary outcome prediction with imbalanced classes
 
+Context:
+{context}
+
 Now, classify this new query:
-User Query: {query}""" 
+User Query: {query}
+"""

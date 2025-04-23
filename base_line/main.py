@@ -4,8 +4,6 @@ from src.generator.gemini_generator import GeminiGenerator
 from src.writer import write_qa_pairs
 
 def main():
-    # model_name = "accounts/fireworks/models/llama4-scout-instruct-basic"
-    # model_name="gemini-1.5-flash"
     temperature = 0.7
     top_p = 1.0
 

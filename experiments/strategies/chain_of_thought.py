@@ -1,4 +1,7 @@
-CHAIN_OF_THOUGHT_PROMPT = """You are an expert in Machine Learning. Let's think through how to classify this ML problem step by step.
+CHAIN_OF_THOUGHT_PROMPT = """You are an expert in Machine Learning. Let's think through how to classify this ML problem step by step. You may also use the context provided.
+
+Context:
+{context}
 
 1. First, let's identify the key components of the query:
    User Query: {query}
@@ -11,4 +14,4 @@ CHAIN_OF_THOUGHT_PROMPT = """You are an expert in Machine Learning. Let's think 
 
 5. Based on these considerations, what is the most appropriate classification?
 
-Please walk through your reasoning and provide the final classification.""" 
+Please walk through your reasoning and provide the final classification."""

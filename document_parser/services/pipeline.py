@@ -14,11 +14,11 @@ from chunking_strategies import (
     ParagraphBasedStrategy,
     TokenBasedStrategy,
 )
-from db.utils.encoder import DummyEncoder
+from langchain_core.embeddings import Embeddings
 from document_parser.models.chunks_model import IndexedChunkModel
 from db.database.dao.vector_dao import VectorDAO
 from document_processor import DocumentProcessor
-
+from services.embedder.lmstudio import LMStudioEmbeddingService
 
 class PDFProcessingPipeline:
     def __init__(
@@ -29,7 +29,7 @@ class PDFProcessingPipeline:
         text_backend: str = "pypdf",  # Puede ser "pymupdf4llm" o "pypdf"
     ):
         self.loader = PDFLoader(pdf_dir, backend=text_backend)
-        self.encoder = DummyEncoder()
+        self.embedder = LMStudioEmbeddingService()
         self.dao = VectorDAO()
         self.processor = DocumentProcessor(
             self._get_strategy(chunking_strategy, chunk_params or {})
@@ -66,7 +66,7 @@ class PDFProcessingPipeline:
             end_idx = start_idx + len(chunk_text)
             cursor = end_idx
 
-            embedding = self.encoder.encode(chunk_text)
+            embedding = self.embedder.get_embedding(chunk_text)
             chunk_id = str(uuid.uuid4())
 
             model = IndexedChunkModel(

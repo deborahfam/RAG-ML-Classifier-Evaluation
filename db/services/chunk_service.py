@@ -2,12 +2,12 @@
 import uuid
 from db.models.document_model import MinimalChunkModel, IndexedChunkModel, EnrichedChunkModel
 from db.database.dao.vector_dao import VectorDAO
-from utils.encoder import BaseEncoder
+from langchain_core.embeddings import Embeddings
 
 class ChunkService:
-    def __init__(self, encoder: BaseEncoder):
-        self.dao = VectorDAO()  # DAO encargado de las operaciones en MongoDB
-        self.encoder = encoder
+    def __init__(self, embedder: Embeddings):
+        self.dao = VectorDAO()  
+        self.embedder = embedder
 
     def process_and_save_minimal_chunk(self, text: str, metadata: dict = None) -> str:
         """
@@ -30,7 +30,7 @@ class ChunkService:
         Procesa un chunk utilizando el modelo IndexedChunkModel, incluyendo información
         de posición en el documento original.
         """
-        embedding = self.encoder.encode(text)
+        embedding = self.embedder.get_embedding(text=text)
         chunk = IndexedChunkModel(
             document_id=document_id,
             text=text,
@@ -51,7 +51,8 @@ class ChunkService:
         Procesa un chunk utilizando el modelo EnrichedChunkModel, incluyendo
         información adicional como resumen, idioma, etiquetas, etc.
         """
-        embedding = self.encoder.encode(text)
+        embedding = self.embedder.get_embedding(text=text)
+
         chunk = EnrichedChunkModel(
             document_id=document_id,
             text=text,
