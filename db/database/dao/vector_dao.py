@@ -33,4 +33,13 @@ class VectorDAO(BaseDAO):
                 }
             }
         ]
-        return list(self.collection.aggregate(pipeline))
+
+        try:
+            results = list(self.collection.aggregate(pipeline))
+            if not results:
+                print("⚠️ Advertencia: el índice puede estar en estado 'pending' o no hay resultados relevantes.")
+            return results
+        except Exception as e:
+            print(f"❌ Error al ejecutar la búsqueda vectorial: {e}")
+            return []
+

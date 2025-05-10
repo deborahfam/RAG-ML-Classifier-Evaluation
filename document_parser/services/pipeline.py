@@ -19,7 +19,7 @@ from document_parser.models.chunks_model import IndexedChunkModel
 from db.database.dao.vector_dao import VectorDAO
 from document_processor import DocumentProcessor
 from services.embedder.lmstudio import LMStudioEmbeddingService
-
+from services.embedder.fireworks import FireworksEmbeddingService
 class PDFProcessingPipeline:
     def __init__(
         self,
@@ -30,6 +30,7 @@ class PDFProcessingPipeline:
     ):
         self.loader = PDFLoader(pdf_dir, backend=text_backend)
         self.embedder = LMStudioEmbeddingService()
+        # self.embedder = FireworksEmbeddingService()
         self.dao = VectorDAO()
         self.processor = DocumentProcessor(
             self._get_strategy(chunking_strategy, chunk_params or {})

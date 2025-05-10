@@ -1,17 +1,16 @@
 from typing import List
 import os
 import dotenv
-import google.generativeai as genai
-from langchain_core.embeddings import Embeddings
+# import google.generativeai as genai
+from google import genai
 from tenacity import retry, stop_after_attempt, wait_fixed, retry_if_exception_type
 import time
 
 dotenv.load_dotenv()
 
-class GeminiEmbeddingService(Embeddings):
+class GeminiEmbeddingService():
     def __init__(self):
-        genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-        self.model = genai.GenerativeModel('embedding-001')  # o el que esté disponible
+        self.client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
     @retry(
         stop=stop_after_attempt(3),
@@ -19,9 +18,13 @@ class GeminiEmbeddingService(Embeddings):
         retry=retry_if_exception_type(Exception)  # puedes personalizar solo para 429
     )
     def get_embedding(self, text: str) -> List[float]:
-        response = self.model.embed_content(content=text, task_type="retrieval_document")
-        return response['embedding']
-
+        result = self.client.models.embed_content(
+        model="embedding-001",
+        contents=text,
+        # config=types.EmbedContentConfig(task_type="SEMANTIC_SIMILARITY")
+        )
+        return result.embeddings[0].values
+    
     def embed_documents(self, text: str) -> List[List[float]]:
         return [self.get_embedding(text)]
 

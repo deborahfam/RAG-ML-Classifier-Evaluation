@@ -1,65 +1,127 @@
 [
   {
-    "problem": "I had to categorize new products based on a set of features so that we could accurately price it for the market."
+    "problem": "I had to categorize new products based on a set of features so that we could accurately price it for the market.",
+    "tag": ["clustering","classification"]
   },
   {
-    "problem": "Hi! I work in a car rental company and we have a problem that we don't know how to solve. Currently, we have a lot of data from our customers, but we don't manage to understand well their behaviors to make business decisions.\n\nFor example:\n\nSome customers rent cars frequently but only for a few days.\n\nOthers rent infrequently, but spend a lot of money on each reservation.\n\nSome rent for weeks or months at a time.\n\nAnd then there are the rest, who don't fit into any clear pattern.\n\nWe want to group these customers intelligently so we can offer them personalized promotions, improve our car inventory (more luxury vehicles? more economy options?) and optimize our marketing campaigns."
+    "problem": "Hi! I work in a car rental company and we have a problem that we don't know how to solve. Currently, we have a lot of data from our customers, but we don't manage to understand well their behaviors to make business decisions.\n\nFor example:\n\nSome customers rent cars frequently but only for a few days.\n\nOthers rent infrequently, but spend a lot of money on each reservation.\n\nSome rent for weeks or months at a time.\n\nAnd then there are the rest, who don't fit into any clear pattern.\n\nWe want to group these customers intelligently so we can offer them personalized promotions, improve our car inventory (more luxury vehicles? more economy options?) and optimize our marketing campaigns.",
+    "tag": ["clustering"]
   },
   {
-    "problem": "I need to learn important member features, characterize target populations for a new health program."
+    "problem": "I need to learn important member features, characterize target populations for a new health program.",
+    "tag": ["clustering"]
   },
   {
-    "problem": "We receive hundreds-or even thousands-of support tickets a month, but we don't have a clear way to organize them and we want to learn from them."
+    "problem": "We receive hundreds-or even thousands-of support tickets a month, but we don't have a clear way to organize them and we want to learn from them.",
+    "tag": ["clustering"]
   },
   {
-    "problem": "Hi! I work in a chemistry lab, and we're dealing with a problem. We’ve collected a large dataset of sample compositions—like olive oils from different regions—and we want to see if there are ways to group them to better understand them."
+    "problem": "Hi! I work in a chemistry lab, and we're dealing with a problem. We’ve collected a large dataset of sample compositions—like olive oils from different regions—and we want to see if there are ways to group them to better understand them.",
+    "tag": ["clustering","classification"]
   },
   {
-    "problem": "I have a project to determine the location that would minimize the shipping distance from a distribution center to stores in its region."
+    "problem": "The distribution time history of different products stored in distribution centers throughout the region is known, and a project is planned to determine, given the characteristics of the products, which distribution center they should go to so that the time it takes them to reach the end customer is as short as possible.",
+    "tag": ["clustering","classification"]
   },
   {
-    "problem": "I neeed to understand ‘user activity profiles’ (eg content producer, curator, lurker, etc).."
+    "problem": "I neeed to understand ‘user activity profiles’ (eg content producer, curator, lurker, etc)..",
+    "tag": ["classification"]
   },
   {
-    "problem": "We used to have a lot of metrics for tracking phone call quality when talking to Care Reps. Then we added texting with care, and it all went out the damn window.\n\nlength of conversation may no longer be as simple.\n\n Long calls on the phone are bad, but part of the convenience of texting is I can say 'hey can you look into this, I'm going into a meeting but will check back after.' and things like that make the experience different. Maybe switching between laptop and mobile is good, maybe it is bad, depends.\n\nDear god do we have more data now, your device, the text of the conversation, and a hundred other points of metadata.\n\nSo how on earth do I create metrics to reliably identify our Good Conversations, and our Bad Conversations, so I can measure success? improvement? Learn from Good Conversations? Fix Bad Conversations? etc."
+    "problem": "We used to have a lot of metrics for tracking phone call quality when talking to Care Reps. Then we added texting with care, and it all went out the damn window.\n\nlength of conversation may no longer be as simple.\n\n Long calls on the phone are bad, but part of the convenience of texting is I can say 'hey can you look into this, I'm going into a meeting but will check back after.' and things like that make the experience different. Maybe switching between laptop and mobile is good, maybe it is bad, depends.\n\nDear god do we have more data now, your device, the text of the conversation, and a hundred other points of metadata.\n\nSo how on earth do I create metrics to reliably identify our Good Conversations, and our Bad Conversations, so I can measure success? improvement? Learn from Good Conversations? Fix Bad Conversations? etc.",
+    "tag": ["classification"]
   },
   {
-    "problem": "Hi! I work for a large health insurance provider, and I’m doing something similar. We want to see the impact from switching from telephone to only messaging. How would you approach this? We have various data elements, such as routing locations, claims, text comments."
+    "problem": "Hi! I work for a large health insurance provider, and I’m doing something similar. We want to see the impact from switching from telephone to only messaging. How would you approach this? We have various data elements, such as routing locations, claims, text comments.",
+    "tag": ["classification"]
   },
   {
-    "problem": "I need to create advertising campaigns for a new product. I have diferent types of customers and I want to be specific about the people likes for each campaign."
+    "problem": "I need to create advertising campaigns for a new product. I have diferent types of customers and I want to be specific about the people likes for each campaign.",
+    "tag": ["clustering"]
   },
   {
-    "problem": "I need to place new supply centers to service a national network of offices that dispatch technicians."
+    "problem": "I need to place new supply centers to service a national network of offices that dispatch technicians.",
+    "tag": ["clustering"]
   },
   {
     "problem": "I need a movile app to help people learn how they should recycle trash."
+    ,
+    "tag": ["classification"]
   },
   {
-    "problem": "I need to make an exam-taking system that will detect if a person was trying to cheat (using a phone, for instance). Something similar can also be used for people working remotely."
+    "problem": "I need to make an exam-taking system that will detect if a person was trying to cheat (using a phone, for instance). Something similar can also be used for people working remotely." ,
+    "tag": ["classification"]
   },
   {
-    "problem": "A company wants to automatically sort incoming customer emails to ensure they reach the appropriate department quickly."
+    "problem": "A company wants to automatically sort incoming customer emails to ensure they reach the appropriate department quickly.",
+    "tag": ["classification"]
   },
   {
-    "problem": "A real estate agency aims to estimate property values based on various features like location, size, and amenities."
+    "problem": "A real estate agency aims to estimate property values based on various features like location, size, and amenities.",
+    "tag": ["regression"]
   },
   {
-    "problem": "A marketing team seeks to understand different customer groups to tailor promotional strategies effectively."
+    "problem": "A marketing team seeks to understand different customer groups to tailor promotional strategies effectively.",
+    "tag": ["regression"]
   },
   {
-    "problem": "An organization is looking to evaluate the quality of customer service interactions across various communication channels."
+    "problem": "An organization is looking to evaluate the quality of customer service interactions across various communication channels.",
+    "tag": ["regression"]
   },
   {
-    "problem": "A logistics firm needs to determine optimal locations for new distribution centers to minimize delivery times."
+    "problem": "A logistics firm needs to determine optimal locations for new distribution centers to minimize delivery times.",
+    "tag": ["regression"]
   },
   {
-    "problem": "A social media platform wants to predict the engagement levels of posts based on content and posting time."
+    "problem": "A social media platform wants to predict the engagement levels of posts based on content and posting time.",
+    "tag": ["classification"]
   },
   {
-    "problem": "A retailer aims to identify products that respond similarly to promotions to optimize marketing efforts."
+    "problem": "A retailer aims to identify products that respond similarly to promotions to optimize marketing efforts.",
+    "tag": ["clustering"]
   },
   {
-    "problem": "A city administration is analyzing crime data to identify patterns and allocate resources more effectively."
-  }
+    "problem": "A city administration is analyzing crime data to identify patterns and allocate resources more effectively.",
+    "tag": ["clustering"]
+  },
+  {
+    "problem": "A property owner wants to know how much he can sell his home for based on the sales ads he reads on the Internet.",
+    "tag": ["regression"]
+  },
+  {
+    "problem": "An oil company wants to predict its oil production for the next month.",
+    "tag": ["regression"]
+  },
+  {
+    "problem": "A media company wants to identify the best audiences for each of its products and their potential growth.",
+    "tag": ["clustering","regression"]
+  },
+  {
+    "problem": "A doctor wants to know which treatment may be the most appropriate by analyzing the medical histories of patients with similar symptoms and pathologies.",
+    "tag": ["clustering","regression"]
+  },
+  {
+    "problem": "A father does his shopping every Saturday based on what he has in the refrigerator and his family and the people he expects to visit him the following week.",
+    "tag": ["regression"]
+  },
+  {
+    "problem": "The person in charge of organizing the products in a store needs to know which products should be placed close to each other and the quantities of these to increase sales and reduce trips to the warehouse to replenish the products that sell the most.",
+    "tag": ["clustering","regression"]
+  },
+  {
+    "problem": "A cook is asked to create dishes on demand, however, he or she does not always have exactly the ingredients required for the recipes and needs to substitute these ingredients with others that he or she has, and in sufficient quantities, to ensure that the recipe is as similar as possible.",
+    "tag": ["clustering","regression"]
+  },
+  {
+    "problem": "University biologists need to know how the turtle population of a region of the country will evolve based on previous nesting as well as the climate that will exist.",
+    "tag": ["regression"]
+  },
+  {
+    "problem": "The goal is to estimate the electricity production of a photovoltaic solar park based on its geographic location and the length of time it has been in use.",
+    "tag": ["regression"]
+  },
+  {
+    "problem": "An athletics coach wants to determine the most appropriate type of race (sprint, middle-distance, or long-distance) for an athlete based on how they have performed in various events throughout their career as a youth athlete.",
+    "tag": ["regression","classification"]
+ }
 ]
