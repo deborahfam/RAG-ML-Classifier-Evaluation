@@ -20,6 +20,7 @@ class ResultsManager:
             str: Path to the saved file
         """
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        experiment_id = experiment_id or f"{result['strategy']}_{result['model']}"
         filename = f"{experiment_id}_{timestamp}.json"
         filepath = os.path.join(self.output_dir, filename)
         
@@ -29,23 +30,14 @@ class ResultsManager:
         return filepath
 
     def save_batch_results(self, results: List[Dict[str, Any]], experiment_id: Optional[str] = None) -> str:
-        if not results:
-            raise ValueError("No results to save.")
-
-        # Construir carpeta y nombre del archivo
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        folder_path = os.path.join(self.output_dir, results['model'], results['strategy_name'])
-        os.makedirs(folder_path, exist_ok=True)
-
-        filename = f"{timestamp}.json"
-        filepath = os.path.join(folder_path, filename)
-
-        # Guardar el archivo
+        # timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"{experiment_id}.json"
+        filepath = os.path.join(self.output_dir, filename)
+        
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(results, f, ensure_ascii=False, indent=2)
-
+            
         return filepath
-
 
     def load_result(self, filepath: str) -> Dict[str, Any]:
         """Load a single experiment result"""
