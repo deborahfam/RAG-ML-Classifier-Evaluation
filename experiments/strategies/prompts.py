@@ -3,30 +3,30 @@ from strategies.prompt_template import PromptTemplate
 
 
 PROMPT_TEMPLATES = {
-#     "baseline": PromptTemplate(
-#         name="baseline",
-#         instruction="""The following is a user query.
+    "baseline": PromptTemplate(
+        name="baseline",
+        instruction="""The following is a user query.
 
-# User Query: {query}
+User Query: {query}
 
-# Please classify it as one of the following types of machine learning problems:
-# """,
-#         guidance=ENUM_DEFINITION,
-#         format_output=OUTPUT_FORMAT
-#     ),
-#     "zero_shot": PromptTemplate(
-#         name="zero_shot",
-#         instruction="""You are an expert in Machine Learning. Given the following user query and additional context, determine what type of machine learning problem it represents.
-# Consider the key characteristics of different ML problem types (classification, regression, clustering, etc.) and classify accordingly.
+Please classify it as one of the following types of machine learning problems:
+""",
+        guidance=ENUM_DEFINITION,
+        format_output=OUTPUT_FORMAT
+    ),
+    "zero_shot": PromptTemplate(
+        name="zero_shot",
+        instruction="""You are an expert in Machine Learning. Given the following user query and additional context, determine what type of machine learning problem it represents.
+Consider the key characteristics of different ML problem types (classification, regression, clustering, etc.) and classify accordingly.
 
-# Context:
-# {context}
+Context:
+{context}
 
-# User Query: {query}
-# """,
-#         guidance=ENUM_DEFINITION,
-#         format_output=OUTPUT_FORMAT
-#     ),
+User Query: {query}
+""",
+        guidance=ENUM_DEFINITION,
+        format_output=OUTPUT_FORMAT
+    ),
     "chain_of_thought": PromptTemplate(
         name="chain_of_thought",
         instruction="""You are an expert in Machine Learning. Let's think through how to classify this ML problem step by step. You may also use the context provided.

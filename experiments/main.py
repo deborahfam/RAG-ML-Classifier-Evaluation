@@ -65,7 +65,7 @@ class ExperimentRunner:
 
         response: ClassificationModel = self.generator.generate_json(
             prompt=prompt,
-            model="accounts/fireworks/models/llama-v3p1-405b-instruct",
+            model="accounts/fireworks/models/qwen3-235b-a22b",
             json_model= ClassificationModel
         )
 
