@@ -69,10 +69,6 @@
     "tag": ["regression"]
   },
   {
-    "problem": "A logistics firm needs to determine optimal locations for new distribution centers to minimize delivery times.",
-    "tag": ["regression"]
-  },
-  {
     "problem": "A social media platform wants to predict the engagement levels of posts based on content and posting time.",
     "tag": ["classification"]
   },

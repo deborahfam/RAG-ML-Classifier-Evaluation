@@ -1,4 +1,5 @@
 import logging
+import os
 import sys
 import json
 from pathlib import Path
@@ -17,19 +18,6 @@ from services.results_manager import ResultsManager
 from services.embedder.lmstudio import LMStudioEmbeddingService
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# from strategies.zero_shot import ZERO_SHOT_PROMPT
-# from strategies.simple_question import SIMPLE_QUESTION_PROMPT
-# from strategies.few_shot import FEW_SHOT_PROMPT
-# from strategies.chain_of_thought import CHAIN_OF_THOUGHT_PROMPT
-
-# STRATEGY_PROMPTS = {
-#     "zero_shot": ZERO_SHOT_PROMPT,
-#     "simple_question": SIMPLE_QUESTION_PROMPT,
-#     "few_shot": FEW_SHOT_PROMPT,
-#     "chain_of_thought": CHAIN_OF_THOUGHT_PROMPT
-# }
-
 
 LARGE_MODELS = [
     "accounts/fireworks/models/llama-v3p1-405b-instruct",
@@ -71,16 +59,13 @@ class ExperimentRunner:
         if strategy_name not in STRATEGY_PROMPTS:
             raise ValueError(f"Estrategia no reconocida: {strategy_name}")
 
-        # prompt_template = STRATEGY_PROMPTS[strategy_name]
-        # prompt = prompt_template.format(context=context, query=query)
-
         prompt_template = STRATEGY_PROMPTS[strategy_name]
         prompt = prompt_template.render(query=query, context=context)
 
 
         response: ClassificationModel = self.generator.generate_json(
             prompt=prompt,
-            model="accounts/fireworks/models/qwen3-30b-a3b",
+            model="accounts/fireworks/models/llama-v3p1-405b-instruct",
             json_model= ClassificationModel
         )
 
@@ -105,17 +90,31 @@ class ExperimentRunner:
         strategies: List[str],
         experiment_id: Optional[str] = None
     ) -> List[Dict]:
-        results = []
+        all_results = []
         context = load_context(Path(__file__).parent / "data" / "context.json")
         for strategy in strategies:
-            for i, query in enumerate(queries):
-                    result = self.run_experiment(
-                        query=query,
-                        strategy_name=strategy,
-                        context=context[i]
-                    )
-                    results.append(result)
-            self.results_manager.save_batch_results(results, f"{results[0]['model']}_{results[0]['strategy_name']}")
+            results = []
+            output_file = Path(self.results_manager.output_dir) / f"{strategy}.json"
+            os.makedirs(output_file.parent, exist_ok=True)
+            existing_results = []
+            if output_file.exists():
+                 with open(output_file, "r", encoding="utf-8") as f:
+                      existing_results = json.load(f)
+                      result = existing_results
+            else:
+                print(f"🔄 No se encontró el archivo {output_file}")
+            start_index = len(existing_results) if existing_results else 0
+            print(f"🔄 Iniciando desde el índice {start_index}")
+
+            for i, query in enumerate(queries[start_index:], start=start_index):
+                print(f"🔄 Procesando query {i} de {len(queries)}")
+                result = self.run_experiment(
+                    query=query,
+                    strategy_name=strategy,
+                    context=context[i]
+                )
+                results.append(result)
+                self.results_manager.save_batch_results(results, f"{results[0]['strategy_name']}")
         return results
 
 def load_problems(file_path: str) -> List[str]:
@@ -129,12 +128,12 @@ if __name__ == "__main__":
     problems_file = Path(__file__).parent / "data" / "problems.json"
     problems = load_problems(problems_file)
 
-    strategies = ["simple_question"]  
+    strategies = list(STRATEGY_PROMPTS.keys()) 
 
     results = runner.run_batch_experiments(
         queries=problems,
         strategies=strategies
     )
 
-    print(f"✅ Completados {len(results)} experimentos.")
+    print(f"✅ Completados {len(results)} experimentos {results[0]['model']}_{results[0]['strategy_name']}.")
     print(f"📝 Resultados guardados en: {runner.results_manager.output_dir}")
