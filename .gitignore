@@ -174,4 +174,4 @@ cython_debug/
 .pypirc
 
 .pdf
-/experiments/outputs/*
+/experiments_analysis/outputs/*
